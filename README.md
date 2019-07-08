@@ -1,4 +1,9 @@
-# UserDetailTask
+# UserDetail
+
+User registration and account edit  with:
+
+### password confirm validation
+### user nickname and email async validation to check for already existing in DB
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
 
