@@ -1,0 +1,76 @@
+<section class="container">
+    <div  *ngIf="!loader" class="row section-wrapper">
+        <div class="col-md-6 offset-md-3">
+            <div class="card-container">
+                <h2>User Details Edit</h2>
+                <form [formGroup]="userEditForm">
+                    <div class="form-group">
+                        <label for="username">Nickname</label>
+                        <input type="text" formControlName="username" class="form-control" />
+                        <div class="form-err"
+                          *ngIf=" userEditForm.get('username').touched && userEditForm.get('username').hasError('required')">
+                          Nickname required
+                        </div>
+                        <div class="form-err"
+                        *ngIf="userEditForm.get('username').touched && userEditForm.get('username').hasError('maxlength')">
+                        Max 40 characters
+                      </div>
+                      </div>
+              
+                      <div class="form-group">
+                        <label for="password">Email</label>
+                        <input type="email" formControlName="email" class="form-control" />
+                        <div class="form-err"
+                          *ngIf="userEditForm.get('email').touched && userEditForm.get('email').hasError('required')">
+                          Email required
+                        </div>
+                        <div class="form-err"
+                        *ngIf="userEditForm.get('email').touched && userEditForm.get('email').hasError('maxlength')">
+                        Max 40 characters
+                      </div>
+                      <div class="form-err" *ngIf=" userEditForm.get('email').hasError('email')">
+                          Please enter valid email
+                         </div>
+                      </div>
+              
+              
+                      <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" formControlName="phone" class="form-control" />
+                        <div class="form-err"
+                          *ngIf="userEditForm.get('phone').touched && userEditForm.get('phone').hasError('required')">
+                          Phone required
+                        </div>
+                        <div class="form-err"
+                        *ngIf="userEditForm.get('phone').touched && userEditForm.get('phone').hasError('maxlength')">
+                        Max14 characters
+                      </div>
+                      </div>
+              
+                      <div class="form-group">
+                        <label for="country">Country</label>
+                        <select formControlName="country" class="form-control">
+                          <option value="Bulgaria">Bulgaria</option>
+                          <option value="Afganistan">Afganistan</option>
+                          <option value="Estonia">Estonia</option>
+                        </select>
+              
+                        <div class="form-err"
+                          *ngIf=" userEditForm.get('country').touched && userEditForm.get('country').hasError('required')">
+                          Country required
+                        </div>
+                      </div>
+              
+                    
+    
+                    <div class="form-group mt-2">
+                        <button type="button" (click)="saveData()" [disabled]="" class="btn btn-primary">Update</button>
+                        I left the email to be editable, because the Kinvey API has a bug and deletes the email even if it 
+                        is not part of the request body.(In normal circumstances it will disabled and it should work like in your requirments)
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    </section>

@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+// regular style toast 
+@import '~ngx-toastr/toastr';
+ 
+
+.btn{
+    border:none;
+    outline:none;
+    box-shadow:none;
+    &:focus{
+        border:none;
+        outline:none;
+        box-shadow:none;  
+    }
+}
+.form-err{
+    color: red;
+}
+
+section{
+    padding:60px 0;
+}
+
+.user-actions{
+    .user-action{
+     display:inline-block;
+      margin:0 5px;
+    }
+}

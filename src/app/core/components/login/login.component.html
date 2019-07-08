@@ -1,0 +1,35 @@
+<section class="container">
+  
+  <div class="row section-wrapper">
+    <div class="col-md-6 offset-md-3">
+
+      <h2>Login</h2>
+      <form [formGroup]="loginForm">
+
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" formControlName="username" class="form-control" />
+          <div *ngIf=" loginForm.get('username').touched && loginForm.get('username').hasError('required')">
+            Username required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" formControlName="password" class="form-control" />
+          <div *ngIf=" loginForm.get('password').touched && loginForm.get('password').hasError('required')">
+            Pass required
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <button [disabled]="loginForm.invalid" (click)="onSubmit()" class="btn btn-primary">Login</button>
+          <span> Don't have an account? </span><a routerLink="/register" class="btn btn-link">Register</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</section>

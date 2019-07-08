@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
+  <a [routerLink]="['']">TestApp</a>
+
+  <div *ngIf="!isAuthenticated()">
+    <div class="user-actions">
+      <a class="btn user-action" [routerLink]="['/login']"> Login </a>
+      <a class="btn user-action" [routerLink]="['/register']"> Register </a>
+    </div>
+  </div>
+  <div *ngIf="isAuthenticated()">
+    <div class="user-actions">
+
+      <button class="btn user-action" (click)="logout()">Log out</button>
+      <a class="btn btn-reversed user-action" routerLink="/users/{{getUserId()}}/edit-profile">My Account</a>
+
+    </div>
+  </div>
+</nav>
